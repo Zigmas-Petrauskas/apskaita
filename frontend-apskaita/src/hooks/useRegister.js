@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { createCompany } from "../services/api";
 
 const useRegister = () => {
@@ -10,44 +9,38 @@ const useRegister = () => {
       setLoading(true);
 
       /*
-        Ateityje čia:
+      Čia vyksta:
 
-        const response = await createCompany(data)
-
-
-        Backend grąžins:
-
-        {
-          companyId,
-          userId,
-          role:"OWNER",
-          twoFactorRequired:true
-        }
+      React
+        ↓
+      axios
+        ↓
+      Express API
 
 
-        Jeigu:
+      Ateityje atsakymas bus:
 
-        twoFactorRequired === true
+      {
+        companyId,
+        userId,
+        role:"OWNER",
+        twoFactorRequired:true
+      }
 
-        nukreipsime į:
-
-        /verify-two-factor
-      */
+    */
 
       const response = await createCompany(data);
 
-      console.log(response);
+      console.log("Registracija sėkminga", response);
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error("Registracija nepavyko:", error);
     } finally {
       setLoading(false);
     }
   };
 
   return {
-    registerCompany,
-
-    loading,
+    registerCompany, loading
   };
 };
 
