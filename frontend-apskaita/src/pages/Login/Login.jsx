@@ -1,0 +1,103 @@
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FaLock, FaEnvelope } from "react-icons/fa";
+import Button from "../../components/ui/Button/Button";
+import loginSchema from "../../schemas/login.schema";
+import useLogin from "../../hooks/useLogin";
+import "./Login.scss";
+
+const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(loginSchema) });
+
+  const { loginUser, loading } = useLogin();
+
+  const onSubmit = (data) => {
+    loginUser(data);
+  };
+
+  return (
+    <main className="login">
+      <section className="login-container" aria-labelledby="login-title">
+        <header className="login-header">
+          <h1>Prisijungimas</h1>
+          <p>Prisijunkite prie apskaitos sistemo</p>
+        </header>
+
+        <form
+          className="lohin-form"
+          aria-label="Prisijungimo forma"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="login-field">
+            <label htmlFor="email">El. paštas</label>
+            <div className="input-wrapper">
+              <FaEnvelope aria-hidden="true" />
+
+              <input
+                id="email"
+                type="email"
+                autoComplete="email"
+                aria-label="Elektroninio pašto adresas"
+                aria-invalid={errors.email ? "true" : "false"}
+                aria-describedby={errors.email ? "email-error" : undefined}
+                {...register("email")}
+              />
+            </div>
+
+            {errors.email && (
+              <span id="email-error" role="alert">
+                {errors.email.message}
+              </span>
+            )}
+          </div>
+
+          <div className="login-field">
+            <label htmlFor="password">Slaptažodis</label>
+            <div className="input-wrapper">
+              <FaLock aria-hidden="true" />
+
+              <input
+                id="password"
+                type="password"
+                autoComplete="current-password"
+                aria-label="Slaptažodis"
+                aria-invalid={errors.password ? "true" : "false"}
+                aria-describedby={
+                  errors.password ? "password-error" : undefined
+                }
+                {...register("password")}
+              />
+            </div>
+
+            {errors.password && (
+              <span id="password-error" role="alert">
+                {errors.password.message}
+              </span>
+            )}
+          </div>
+
+          <Button
+            type="submit"
+            loading={loading}
+            ariaLabel="Prisijungti prie sistemos"
+          >
+            Prisijungti
+          </Button>
+
+          <div className="login-register">
+            <p>
+              Neturite paskyros? <Link to="/register">Registuokis</Link>
+            </p>
+          </div>
+        </form>
+      </section>
+    </main>
+  );
+};
+
+export default Login;

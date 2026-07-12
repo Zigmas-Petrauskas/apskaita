@@ -1,4 +1,4 @@
-.register {
+.login {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -6,9 +6,9 @@
   padding: 2rem;
 }
 
-.register-container {
+.login-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 450px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -16,12 +16,13 @@
   box-shadow: var(--shadow-md);
 }
 
-.register-header {
+.login-header {
   text-align: center;
   margin-bottom: 2rem;
 
   h1 {
     font-size: var(--font-2xl);
+    margin-bottom: 0.5rem;
   }
 
   p {
@@ -29,24 +30,21 @@
   }
 }
 
-.register-form {
+.lohin-form {
+  /*
+    Čia palikau tavo klasės pavadinimą,
+    bet rekomenduočiau vėliau pakeisti į:
+
+    login-form
+
+  */
+
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
-.register-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-
-  h2 {
-    grid-column: 1 / -1;
-    font-size: var(--font-lg);
-  }
-}
-
-.register-field {
+.login-field {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -63,13 +61,11 @@
 }
 
 /*
-  Input + ikonėlė
+  Bendras input blokas:
 
-  Bendra struktūra naudojama:
-
-  Register
-  Login
-  Ateityje kiti form komponentai
+  Ikonėlė
+      |
+      input
 
 */
 
@@ -96,28 +92,49 @@
     width: 100%;
     padding: 0.8rem 0;
     background: transparent;
-    color: var(--color-text);
     border: none;
     outline: none;
+    color: var(--color-text);
     font-size: var(--font-base);
   }
 }
 
+.login-register {
+  margin-top: 1.5rem;
+  text-align: center;
+
+  p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-sm);
+  }
+
+  a {
+    margin-left: 0.4rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+  }
+}
+
 @media (min-width: 1024px) {
-  .register-section {
-    grid-template-columns: repeat(2, 1fr);
+  .login-container {
+    max-width: 500px;
   }
 }
 
 @media (min-width: 1440px) {
-  .register-container {
-    max-width: 1000px;
+  .login-container {
     padding: 3rem;
   }
 }
 
 @media (min-width: 1920px) {
-  .register-container {
-    max-width: 1200px;
+  .login-container {
+    max-width: 550px;
   }
 }
