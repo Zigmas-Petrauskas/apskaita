@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FaLock, FaEnvelope } from "react-icons/fa";
+import { FaLock, FaUser } from "react-icons/fa";
 import Button from "../../components/ui/Button/Button";
 import loginSchema from "../../schemas/login.schema";
 import useLogin from "../../hooks/useLogin";
@@ -34,24 +34,26 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="login-field">
-            <label htmlFor="email">El. paštas</label>
+            <label htmlFor="username">Vartotojo vardas</label>
             <div className="input-wrapper">
-              <FaEnvelope aria-hidden="true" />
+              <FaUser aria-hidden="true" />
 
               <input
-                id="email"
-                type="email"
-                autoComplete="email"
-                aria-label="Elektroninio pašto adresas"
-                aria-invalid={errors.email ? "true" : "false"}
-                aria-describedby={errors.email ? "email-error" : undefined}
-                {...register("email")}
+                id="username"
+                type="text"
+                autoComplete="username"
+                aria-label="Vartotojo vardas"
+                aria-invalid={errors.username ? "true" : "false"}
+                aria-describedby={
+                  errors.username ? "username-error" : undefined
+                }
+                {...register("username")}
               />
             </div>
 
-            {errors.email && (
-              <span id="email-error" role="alert">
-                {errors.email.message}
+            {errors.username && (
+              <span id="username-error" role="alert">
+                {errors.username.message}
               </span>
             )}
           </div>

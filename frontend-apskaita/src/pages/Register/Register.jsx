@@ -240,6 +240,32 @@ const Register = () => {
             </div>
 
             <div className="register-field">
+              <label htmlFor="ownerUsername">Vartotojo vardas</label>
+
+              <div className="input-wrapper">
+                <FaUser aria-hidden="true" />
+
+                <input
+                  id="ownerUsername"
+                  type="text"
+                  autoComplete="username"
+                  aria-label="Vartotojo vardas"
+                  aria-invalid={errors.ownerUsername ? "true" : "false"}
+                  aria-describedby={
+                    errors.ownerUsername ? "ownerUsername-error" : undefined
+                  }
+                  {...register("ownerUsername")}
+                />
+              </div>
+
+              {errors.ownerUsername && (
+                <span id="ownerUsername-error" role="alert">
+                  {errors.ownerUsername.message}
+                </span>
+              )}
+            </div>
+
+            <div className="register-field">
               <label htmlFor="ownerEmail">El. paštas</label>
               <div className="input-wrapper">
                 <FaEnvelope aria-hidden="true" />
@@ -259,6 +285,32 @@ const Register = () => {
               {errors.ownerEmail && (
                 <span id="ownerEmail-error" role="alert">
                   {errors.ownerEmail.message}
+                </span>
+              )}
+            </div>
+
+            <div className="register-field">
+              <label htmlFor="ownerPhone">Telefonas</label>
+
+              <div className="input-wrapper">
+                <FaPhone aria-hidden="true" />
+
+                <input
+                  id="ownerPhone"
+                  type="tel"
+                  autoComplete="tel"
+                  aria-label="Vadovo telefono numeris"
+                  aria-invalid={errors.ownerPhone ? "true" : "false"}
+                  aria-describedby={
+                    errors.ownerPhone ? "ownerPhone-error" : undefined
+                  }
+                  {...register("ownerPhone")}
+                />
+              </div>
+
+              {errors.ownerPhone && (
+                <span id="ownerPhone-error" role="alert">
+                  {errors.ownerPhone.message}
                 </span>
               )}
             </div>

@@ -1,4 +1,4 @@
-import ClipLoader from "react-spinners/ClipLoader";
+import Loader from "../Loader/Loader";
 import "./Button.scss";
 
 const Button = ({
@@ -6,16 +6,16 @@ const Button = ({
   loading = false,
   disabled = false,
   type = "button",
-  arialabel,
+  ariaLabel,
 }) => {
   return (
     <button
       type={type}
       disabled={disabled || loading}
-      aria-label={arialabel || (loading ? "Vykdoma operacija" : children)}
+      aria-label={ariaLabel || (loading ? "Vykdoma operacija" : children)}
       className="button"
     >
-      {loading ? <ClipLoader size={18} aria-label="Kraunama" /> : children}
+      {loading ? <Loader /> : children}
     </button>
   );
 };

@@ -24,7 +24,6 @@ import axios from "axios";
 */
 
 const api = axios.create({
-
   baseURL: "http://127.0.0.1:5000/api/v1",
 
   headers: {
@@ -46,7 +45,7 @@ const api = axios.create({
 
   ownerFirstName
   ownerLastName
-  ownerEmail
+  ownerYsername
   ownerPassword
 
 
@@ -60,15 +59,26 @@ const api = axios.create({
 */
 
 export const createCompany = async (data) => {
-
   const payload = {
-    company: { name: data.companyName, code: data.companyCode, vatCode: data.vatCode, address: data.address, phone: data.companyPhone, email: data.companyEmail },
-    owner: { firstName: data.ownerFirstName, lastName: data.ownerLastName, email: data.ownerEmail, password: data.ownerPassword },
+    company: {
+      name: data.companyName,
+      code: data.companyCode,
+      vatCode: data.vatCode,
+      address: data.address,
+      phone: data.companyPhone,
+      email: data.companyEmail,
+    },
+    owner: {
+      firstName: data.ownerFirstName,
+      lastName: data.ownerLastName,
+      username: data.ownerUsername,
+      email: data.ownerEmail,
+      phone: data.ownerPhone,
+      password: data.ownerPassword,
+    },
   };
 
-  const response = await api.post(
-    "/company/register", payload
-  );
+  const response = await api.post("/company/register", payload);
 
   return response.data;
 };
