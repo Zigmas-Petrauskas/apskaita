@@ -1,7 +1,11 @@
 import { FaUserCircle, FaSignOutAlt } from "react-icons/fa";
+import useAuth from "../../../hooks/useAuth";
+
 import "./Header.scss";
 
 const Header = () => {
+  const { logout } = useAuth();
+
   const user = JSON.parse(localStorage.getItem("user"));
 
   return (
@@ -10,8 +14,10 @@ const Header = () => {
 
       <div className="header-user">
         <FaUserCircle />
+
         <span>{user?.username || "Vartotojas"}</span>
-        <button>
+
+        <button onClick={logout} aria-label="Atsijungti">
           <FaSignOutAlt />
         </button>
       </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import api from "../services/api";
 
 const useLogin = () => {
@@ -16,16 +17,16 @@ const useLogin = () => {
       console.log("Login:", response.data);
 
       /*
-        Saugome prisijungusį vartotoją
+        Išsaugome prisijungusį vartotoją
 
-        Vėliau čia bus:
+        Ateityje čia bus:
         - JWT token
         - refresh token
       */
 
-      localStorage.setItem("user", JSON.stringify(response.data));
+      const user = response.data.data ?? response.data;
 
-      // einame į dashboard
+      localStorage.setItem("user", JSON.stringify(user));
 
       navigate("/dashboard");
     } catch (error) {
@@ -37,6 +38,7 @@ const useLogin = () => {
 
   return {
     loginUser,
+
     loading,
   };
 };

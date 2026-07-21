@@ -1,52 +1,91 @@
 .users {
-  padding: 2rem;
+  width: 100%;
+  padding: 1.5rem;
 }
 
 .users-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 
-  h1 {
-    margin: 0 0 0.5rem;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    text-decoration: none;
   }
 
-  p {
-    margin: 0;
-    opacity: 0.7;
+  h1 {
+    font-size: 2rem;
   }
 }
 
-.users-add-button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  background: var(--primary);
-  color: white;
-  cursor: pointer;
+.users-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .users-empty {
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
   background: var(--surface);
-  border-radius: 12px;
+  border-radius: 1rem;
+  color: var(--text-muted);
+}
 
-  svg {
-    font-size: 3rem;
-    color: var(--primary);
+.user-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: 1rem;
+}
+
+.user-actions {
+  display: flex;
+  gap: 0.5rem;
+
+  button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1440px) {
+  .users {
+    padding: 3rem;
   }
 
-  p {
-    margin: 0;
-    opacity: 0.7;
+  .users-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .users-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1920px) {
+  .users {
+    padding: 4rem;
+  }
+
+  .users-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
