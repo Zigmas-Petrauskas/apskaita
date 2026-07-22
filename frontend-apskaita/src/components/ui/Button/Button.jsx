@@ -1,4 +1,5 @@
 import Loader from "../Loader/Loader";
+
 import "./Button.scss";
 
 const Button = ({
@@ -7,6 +8,7 @@ const Button = ({
   disabled = false,
   type = "button",
   ariaLabel,
+  onClick,
 }) => {
   return (
     <button
@@ -14,6 +16,7 @@ const Button = ({
       disabled={disabled || loading}
       aria-label={ariaLabel || (loading ? "Vykdoma operacija" : children)}
       className="button"
+      onClick={onClick}
     >
       {loading ? <Loader /> : children}
     </button>

@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaUserPlus, FaEdit, FaTrash } from "react-icons/fa";
-
 import useUsers from "../../hooks/useUsers";
-
+import UserForm from "./UserForm";
 import Button from "../../components/ui/Button/Button";
-
 import "./Users.scss";
 
 const Users = () => {
-  const { users, deleteUser, setShowForm } = useUsers();
+  const { users, deleteUser, showForm, setShowForm, addUser } = useUsers();
 
   return (
     <section className="users">
@@ -30,6 +28,10 @@ const Users = () => {
           Pridėti vartotoją
         </Button>
       </header>
+
+      {showForm && (
+        <UserForm closeForm={() => setShowForm(false)} addUser={addUser} />
+      )}
 
       <div className="users-list">
         {users.length === 0 ? (

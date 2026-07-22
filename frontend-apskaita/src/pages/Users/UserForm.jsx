@@ -1,53 +1,71 @@
-import { useForm } from "react-hook-form";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import userSchema from "../../schemas/user.schema";
-
+import { FaSave, FaTimes } from "react-icons/fa";
+import useUserForm from "../../hooks/useUserForm";
 import Button from "../../components/ui/Button/Button";
-
+import Input from "../../components/ui/Input/Input";
 import "./UserForm.scss";
 
-const UserForm = ({ closeForm }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(userSchema),
+const UserForm = ({ closeForm, addUser }) => {
+  const { register, handleSubmit, onSubmit, errors, loading } = useUserForm({
+    addUser,
+    closeForm,
   });
-
-  const onSubmit = (data) => {
-    console.log(data);
-
-    closeForm();
-  };
 
   return (
     <form className="user-form" onSubmit={handleSubmit(onSubmit)}>
       <h2>Naujas vartotojas</h2>
 
-      <input placeholder="Vardas" {...register("firstName")} />
+      <Input
+        id="firstName"
+        label="Vardas"
+        error={errors.firstName?.message}
+        {...register("firstName")}
+      />
 
-      <p>{errors.firstName?.message}</p>
+      <Input
+        id="lastName"
+        label="Pavardė"
+        error={errors.lastName?.message}
+        {...register("lastName")}
+      />
 
-      <input placeholder="Pavardė" {...register("lastName")} />
+      <Input
+        id="username"
+        label="Vartotojo vardas"
+        error={errors.username?.message}
+        {...register("username")}
+      />
 
-      <input placeholder="Username" {...register("username")} />
+      <Input
+        id="email"
+        label="El. paštas"
+        type="email"
+        error={errors.email?.message}
+        {...register("email")}
+      />
 
-      <input placeholder="El. paštas" {...register("email")} />
-
-      <input
+      <Input
+        id="password"
+        label="Slaptažodis"
         type="password"
-        placeholder="Slaptažodis"
+        error={errors.password?.message}
         {...register("password")}
       />
 
-      <Button type="submit">Išsaugoti</Button>
+      <div className="user-form-actions">
+        <Button type="submit" loading={loading} ariaLabel="Išsaugoti vartotoją">
+          <FaSave />
+          Išsaugoti
+        </Button>
 
-      <Button type="button" onClick={closeForm}>
-        Atšaukti
-      </Button>
+        <Button
+          type="button"
+          onClick={closeForm}
+          ariaLabel="Atšaukti vartotojo kūrimą"
+        >
+          <FaTimes />
+          Atšaukti
+        </Button>
+      </div>
     </form>
   );
 };

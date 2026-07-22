@@ -20,25 +20,12 @@
   text-align: center;
   margin-bottom: 2rem;
 
-  h1 {
-    font-size: var(--font-2xl);
-    margin-bottom: 0.5rem;
-  }
-
   p {
     color: var(--color-text-secondary);
   }
 }
 
-.lohin-form {
-  /*
-    Čia palikau tavo klasės pavadinimą,
-    bet rekomenduočiau vėliau pakeisti į:
-
-    login-form
-
-  */
-
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

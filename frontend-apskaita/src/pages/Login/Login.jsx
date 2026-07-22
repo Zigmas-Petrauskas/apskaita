@@ -24,12 +24,11 @@ const Login = () => {
     <main className="login">
       <section className="login-container" aria-labelledby="login-title">
         <header className="login-header">
-          <h1>Prisijungimas</h1>
-          <p>Prisijunkite prie apskaitos sistemo</p>
+          <p>Prisijunkite prie apskaitos sistemos</p>
         </header>
 
         <form
-          className="lohin-form"
+          className="login-form"
           aria-label="Prisijungimo forma"
           onSubmit={handleSubmit(onSubmit)}
         >
