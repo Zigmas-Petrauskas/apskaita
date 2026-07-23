@@ -1,20 +1,20 @@
 import PropTypes from "prop-types";
 import "./Input.scss";
 
-const Input = ({ id, label, type = "text", error, ...props }) => {
+const Input = ({ id, type = "text", placeholder, error, ...props }) => {
   return (
     <div className="input-field">
-      <label htmlFor={id}>{label}</label>
-      <input id={id} type={type} {...props} />
+      <input id={id} type={type} placeholder={placeholder} {...props} />
+
       {error && <span role="alert">{error}</span>}
     </div>
   );
 };
 
-Input.protTypes = {
+Input.propTypes = {
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
   type: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
   error: PropTypes.string,
 };
 

@@ -6,20 +6,21 @@
 .users-header {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 2rem;
+  text-align: center;
 
   a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
     color: var(--text);
     text-decoration: none;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -30,9 +31,12 @@
 }
 
 .users-empty {
-  padding: 2rem;
+  width: 100%;
+  grid-column: 1 / -1;
+  padding: 1.5rem;
   text-align: center;
   background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 1rem;
   color: var(--text-muted);
 }
@@ -43,6 +47,7 @@
   align-items: center;
   padding: 1.5rem;
   background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 1rem;
 }
 
@@ -62,30 +67,29 @@
 
 @media (min-width: 1440px) {
   .users {
-    padding: 3rem;
+    padding: 2rem;
   }
 
   .users-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
 
   .users-list {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 
 @media (min-width: 1920px) {
   .users {
-    padding: 4rem;
+    padding: 3rem;
   }
 
   .users-list {
     grid-template-columns: repeat(3, 1fr);
+    max-width: 1500px;
   }
 }

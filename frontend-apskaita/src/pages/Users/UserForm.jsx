@@ -16,28 +16,28 @@ const UserForm = ({ closeForm, addUser }) => {
 
       <Input
         id="firstName"
-        label="Vardas"
+        placeholder="Vardas"
         error={errors.firstName?.message}
         {...register("firstName")}
       />
 
       <Input
         id="lastName"
-        label="Pavardė"
+        placeholder="Pavardė"
         error={errors.lastName?.message}
         {...register("lastName")}
       />
 
       <Input
         id="username"
-        label="Vartotojo vardas"
+        placeholder="Vartotojo vardas"
         error={errors.username?.message}
         {...register("username")}
       />
 
       <Input
         id="email"
-        label="El. paštas"
+        placeholder="El. paštas"
         type="email"
         error={errors.email?.message}
         {...register("email")}
@@ -45,7 +45,7 @@ const UserForm = ({ closeForm, addUser }) => {
 
       <Input
         id="password"
-        label="Slaptažodis"
+        placeholder="Slaptažodis"
         type="password"
         error={errors.password?.message}
         {...register("password")}
