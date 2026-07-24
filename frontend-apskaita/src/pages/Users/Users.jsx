@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaUserPlus, FaEdit, FaTrash } from "react-icons/fa";
-
 import useUsers from "../../hooks/useUsers";
 import UserForm from "./UserForm";
-
 import Button from "../../components/ui/Button/Button";
-
 import "./Users.scss";
 
 const Users = () => {

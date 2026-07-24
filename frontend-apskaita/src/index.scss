@@ -5,19 +5,43 @@
   --color-bg: #0f1117;
   --color-surface: #151820;
   --color-surface-light: #1d222d;
-
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
-
   --color-accent: #c9a227;
-
   --color-text: #f8fafc;
   --color-text-secondary: #94a3b8;
   --color-border: #273244;
-
   --color-success: #22c55e;
   --color-danger: #ef4444;
   --color-warning: #f59e0b;
+
+  // Icon colors (muted)
+  --icon-blue: #60a5fa;
+  --icon-green: #4ade80;
+  --icon-gold: #d4b25c;
+  --icon-cyan: #38bdf8;
+  --icon-purple: #a78bfa;
+  --icon-red: #f87171;
+  --icon-orange: #fb923c;
+  --icon-gray: #94a3b8;
+
+  // Button colors
+  --button-bg: #2563eb;
+  --button-bg-hover: #1d4ed8;
+  --button-text: #ffffff;
+  --button-danger-bg: #dc2626;
+  --button-danger-hover: #b91c1c;
+
+  // Input colors
+  --input-bg: #0f1117;
+  --input-border: #273244;
+  --input-border-focus: #60a5fa;
+  --input-placeholder: #64748b;
+
+  // Status colors
+  --status-active: #4ade80;
+  --status-inactive: #94a3b8;
+  --status-warning: #fbbf24;
 
   // Fonts
   --font-body: "Inter", sans-serif;

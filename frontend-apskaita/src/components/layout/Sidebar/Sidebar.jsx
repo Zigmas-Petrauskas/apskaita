@@ -8,8 +8,7 @@ const Sidebar = () => {
     <aside className="sidebar">
       <nav>
         <NavLink to="/users">
-          <FaUsers />
-
+          <FaUsers className="sidebar-icon user-icon" />
           <span>Vartotojai</span>
         </NavLink>
       </nav>
